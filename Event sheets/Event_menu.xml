@@ -1,0 +1,490 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event_menu</name>
+    <events>
+        <variable constant="0" name="gMusica" sid="653861595269162" static="0" type="number">0</variable>
+        <event-block sid="527895919502982">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="569531000247085" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="308012050680279" type="tela_creditos" />
+                <action id="-9" name="Destroy" sid="765033282317683" type="tela_controles" />
+                <action id="-9" name="Destroy" sid="844436451796873" type="tela_sinopse" />
+                <action id="-9" name="Destroy" sid="809053405337716" type="tela_ranking" />
+                <action id="-9" name="Destroy" sid="665781943334605" type="bt_home" />
+                <action id="-9" name="Destroy" sid="757561885940147" type="bt_confirma" />
+                <action id="0" name="Play" sid="888237039406329" type="Audio">
+                    <param id="0" name="Audio file">menu_ES_In a Nutshell - Got Happy_01</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;musica&quot;</param>
+                </action>
+                <action id="0" name="Request URL" sid="509044404255954" type="AJAX">
+                    <param id="0" name="Tag">&quot;getScore&quot;</param>
+                    <param id="1" name="URL">&quot;http://museuemchamas.orgfree.com/getscores.php&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="146558725844301">
+            <conditions>
+                <condition id="0" name="On completed" sid="284426410104997" type="AJAX">
+                    <param id="0" name="Tag">&quot;getScore&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="237576469432876">
+                    <conditions>
+                        <condition id="3" name="For each element" sid="487691381287654" type="Array">
+                            <param id="0" name="Axes">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="2" name="Set at X" sid="540899505376516" type="Array">
+                            <param id="0" name="X">Array.CurX</param>
+                            <param id="1" name="Value">tokenat(AJAX.LastData, Array.CurX, &quot;|&quot;)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="870034131535632">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="614504384770158" type="System">
+                            <param id="0" name="Object">txt_rank</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="372088178885826" type="txt_rank">
+                            <param id="0" name="Text">Array.At(txt_rank.IID)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block any="1" sid="298516690035575">
+            <conditions>
+                <condition id="3" name="On touched object" sid="466945710705614" type="Touch">
+                    <param id="0" name="Object">bt_play</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="845338397752342" type="bt_play">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="350044319686437" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="5" name="Set frame" sid="778822340138759" type="bt_play">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="582588832865608" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-15" name="Set visible" sid="210298524206094" type="txt_rank">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-9" name="Destroy" sid="898749648107636" type="tela_titulo" />
+                <action id="-9" name="Destroy" sid="771358685480342" type="tit_color" />
+                <action id="-9" name="Destroy" sid="752327540628114" type="tit_amarelo" />
+                <action id="-9" name="Destroy" sid="604384514219551" type="tela_controles" />
+                <action id="-9" name="Destroy" sid="356014087352919" type="tela_creditos" />
+                <action id="-9" name="Destroy" sid="321785435882739" type="tela_ranking" />
+                <action id="-9" name="Destroy" sid="392247017581678" type="bt_play" />
+                <action id="-9" name="Destroy" sid="396458900827105" type="bt_control" />
+                <action id="-9" name="Destroy" sid="253786021234157" type="bt_musica" />
+                <action id="-9" name="Destroy" sid="225905304472714" type="bt_rank" />
+                <action id="-9" name="Destroy" sid="813642475258052" type="bt_creditos" />
+                <action id="-9" name="Destroy" sid="930737820503529" type="bt_sair" />
+                <action id="-3" name="Create object" sid="656872411273184" type="System">
+                    <param id="0" name="Object to create">tela_sinopse</param>
+                    <param id="1" name="Layer">&quot;menu_bg&quot;</param>
+                    <param id="2" name="X">0</param>
+                    <param id="3" name="Y">0</param>
+                </action>
+                <action id="-3" name="Create object" sid="843090752106723" type="System">
+                    <param id="0" name="Object to create">bt_home</param>
+                    <param id="1" name="Layer">&quot;menu_bt&quot;</param>
+                    <param id="2" name="X">315.5</param>
+                    <param id="3" name="Y">318.5</param>
+                </action>
+                <action id="-3" name="Create object" sid="250553212390374" type="System">
+                    <param id="0" name="Object to create">bt_confirma</param>
+                    <param id="1" name="Layer">&quot;menu_bt&quot;</param>
+                    <param id="2" name="X">255.5</param>
+                    <param id="3" name="Y">318.5</param>
+                </action>
+                <action id="-3" name="Create object" sid="718690843542334" type="System">
+                    <param id="0" name="Object to create">bt_sair</param>
+                    <param id="1" name="Layer">&quot;menu_bt&quot;</param>
+                    <param id="2" name="X">375.5</param>
+                    <param id="3" name="Y">318.5</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="776533312135440">
+            <conditions>
+                <condition id="3" name="On touched object" sid="699564563292866" type="Touch">
+                    <param id="0" name="Object">bt_control</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="683082481842606" type="bt_control">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="501176974394340" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="5" name="Set frame" sid="364736251507112" type="bt_control">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="750852034096013" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-15" name="Set visible" sid="215475503466857" type="txt_rank">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-9" name="Destroy" sid="644979346479172" type="tela_titulo" />
+                <action id="-9" name="Destroy" sid="367881398587910" type="tit_color" />
+                <action id="-9" name="Destroy" sid="825734468075613" type="tit_amarelo" />
+                <action id="-9" name="Destroy" sid="262086028804050" type="bt_play" />
+                <action id="-9" name="Destroy" sid="341551174528511" type="bt_control" />
+                <action id="-9" name="Destroy" sid="641825840938336" type="bt_musica" />
+                <action id="-9" name="Destroy" sid="308532867355182" type="bt_rank" />
+                <action id="-9" name="Destroy" sid="887490863348505" type="bt_creditos" />
+                <action id="-9" name="Destroy" sid="991807299401341" type="bt_sair" />
+                <action id="-3" name="Create object" sid="866982352769160" type="System">
+                    <param id="0" name="Object to create">tela_controles</param>
+                    <param id="1" name="Layer">&quot;menu_bg&quot;</param>
+                    <param id="2" name="X">0</param>
+                    <param id="3" name="Y">0</param>
+                </action>
+                <action id="-3" name="Create object" sid="232342345618037" type="System">
+                    <param id="0" name="Object to create">bt_home</param>
+                    <param id="1" name="Layer">&quot;menu_bt&quot;</param>
+                    <param id="2" name="X">315.5</param>
+                    <param id="3" name="Y">318.5</param>
+                </action>
+                <action id="-3" name="Create object" sid="187925776697767" type="System">
+                    <param id="0" name="Object to create">bt_play</param>
+                    <param id="1" name="Layer">&quot;menu_bt&quot;</param>
+                    <param id="2" name="X">255.5</param>
+                    <param id="3" name="Y">318.5</param>
+                </action>
+                <action id="-3" name="Create object" sid="451112857843371" type="System">
+                    <param id="0" name="Object to create">bt_sair</param>
+                    <param id="1" name="Layer">&quot;menu_bt&quot;</param>
+                    <param id="2" name="X">375.5</param>
+                    <param id="3" name="Y">318.5</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="515310666107682">
+            <conditions>
+                <condition id="3" name="On touched object" sid="276627543974897" type="Touch">
+                    <param id="0" name="Object">bt_musica</param>
+                </condition>
+                <condition id="3" name="Compare frame" sid="500865672423639" type="bt_musica">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Number">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="668005081145395" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="5" name="Set frame" sid="899096077297639" type="bt_musica">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="613106221080460" type="System">
+                    <param id="0" name="Variable">gMusica</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="2" name="Set muted" sid="975504160118073" type="Audio">
+                    <param id="0" name="Tag">&quot;musica&quot;</param>
+                    <param id="1" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="880748823772267">
+            <conditions>
+                <condition id="3" name="On touched object" sid="745321052425997" type="Touch">
+                    <param id="0" name="Object">bt_musica</param>
+                </condition>
+                <condition id="3" name="Compare frame" sid="579920798757195" type="bt_musica">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Number">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="907991561296792" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="5" name="Set frame" sid="344932146852771" type="bt_musica">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="412733288452683" type="System">
+                    <param id="0" name="Variable">gMusica</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set muted" sid="796380875684337" type="Audio">
+                    <param id="0" name="Tag">&quot;musica&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="535616378645262">
+            <conditions>
+                <condition id="3" name="On touched object" sid="375546857027061" type="Touch">
+                    <param id="0" name="Object">bt_rank</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="230011813286791" type="bt_rank">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="831650612373742" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="5" name="Set frame" sid="337314684539829" type="bt_rank">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="636328097156637" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="297004570481871" type="tela_titulo" />
+                <action id="-9" name="Destroy" sid="675921791396769" type="tit_color" />
+                <action id="-9" name="Destroy" sid="700812377476388" type="tit_amarelo" />
+                <action id="-9" name="Destroy" sid="778264117827495" type="bt_play" />
+                <action id="-9" name="Destroy" sid="928010681228015" type="bt_control" />
+                <action id="-9" name="Destroy" sid="870750136723861" type="bt_musica" />
+                <action id="-9" name="Destroy" sid="790751550950476" type="bt_rank" />
+                <action id="-9" name="Destroy" sid="951550830729304" type="bt_creditos" />
+                <action id="-9" name="Destroy" sid="926747621222050" type="bt_sair" />
+                <action id="-3" name="Create object" sid="120326447313429" type="System">
+                    <param id="0" name="Object to create">tela_ranking</param>
+                    <param id="1" name="Layer">&quot;menu_bg&quot;</param>
+                    <param id="2" name="X">0</param>
+                    <param id="3" name="Y">0</param>
+                </action>
+                <action id="-3" name="Create object" sid="612735528391421" type="System">
+                    <param id="0" name="Object to create">bt_home</param>
+                    <param id="1" name="Layer">&quot;menu_bt&quot;</param>
+                    <param id="2" name="X">315.5</param>
+                    <param id="3" name="Y">318.5</param>
+                </action>
+                <action id="-3" name="Create object" sid="831184689526962" type="System">
+                    <param id="0" name="Object to create">bt_play</param>
+                    <param id="1" name="Layer">&quot;menu_bt&quot;</param>
+                    <param id="2" name="X">255.5</param>
+                    <param id="3" name="Y">318.5</param>
+                </action>
+                <action id="-3" name="Create object" sid="460439838829728" type="System">
+                    <param id="0" name="Object to create">bt_sair</param>
+                    <param id="1" name="Layer">&quot;menu_bt&quot;</param>
+                    <param id="2" name="X">375.5</param>
+                    <param id="3" name="Y">318.5</param>
+                </action>
+                <action id="-15" name="Set visible" sid="638180495658408" type="txt_rank">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="457912329045255">
+            <conditions>
+                <condition id="3" name="On touched object" sid="772365001912666" type="Touch">
+                    <param id="0" name="Object">bt_creditos</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="417122197820338" type="bt_creditos">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="864589293977521" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="5" name="Set frame" sid="464592734035176" type="bt_creditos">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="759565637861121" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-15" name="Set visible" sid="891801295295451" type="txt_rank">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-9" name="Destroy" sid="675123666153714" type="tela_titulo" />
+                <action id="-9" name="Destroy" sid="386846965837274" type="tit_color" />
+                <action id="-9" name="Destroy" sid="996878038773158" type="tit_amarelo" />
+                <action id="-9" name="Destroy" sid="560879589803149" type="bt_play" />
+                <action id="-9" name="Destroy" sid="419542546406069" type="bt_control" />
+                <action id="-9" name="Destroy" sid="290726609996426" type="bt_musica" />
+                <action id="-9" name="Destroy" sid="869382961318536" type="bt_rank" />
+                <action id="-9" name="Destroy" sid="856889351971869" type="bt_creditos" />
+                <action id="-9" name="Destroy" sid="930045796665946" type="bt_sair" />
+                <action id="-3" name="Create object" sid="560711747670166" type="System">
+                    <param id="0" name="Object to create">tela_creditos</param>
+                    <param id="1" name="Layer">&quot;menu_bg&quot;</param>
+                    <param id="2" name="X">315</param>
+                    <param id="3" name="Y">180</param>
+                </action>
+                <action id="-3" name="Create object" sid="390060067783120" type="System">
+                    <param id="0" name="Object to create">bt_home</param>
+                    <param id="1" name="Layer">&quot;menu_bt&quot;</param>
+                    <param id="2" name="X">315.5</param>
+                    <param id="3" name="Y">318.5</param>
+                </action>
+                <action id="-3" name="Create object" sid="200666797985026" type="System">
+                    <param id="0" name="Object to create">bt_play</param>
+                    <param id="1" name="Layer">&quot;menu_bt&quot;</param>
+                    <param id="2" name="X">255.5</param>
+                    <param id="3" name="Y">318.5</param>
+                </action>
+                <action id="-3" name="Create object" sid="236042712793196" type="System">
+                    <param id="0" name="Object to create">bt_sair</param>
+                    <param id="1" name="Layer">&quot;menu_bt&quot;</param>
+                    <param id="2" name="X">375.5</param>
+                    <param id="3" name="Y">318.5</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="141790979222431">
+            <conditions>
+                <condition id="3" name="On touched object" sid="161571170526624" type="Touch">
+                    <param id="0" name="Object">bt_home</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="209884991082161" type="bt_home">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="231123396683498" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="5" name="Set frame" sid="958341953368853" type="bt_home">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="597233634080323" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-15" name="Set visible" sid="195458318011804" type="txt_rank">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-9" name="Destroy" sid="675752502116719" type="tela_sinopse" />
+                <action id="-9" name="Destroy" sid="283366648531610" type="tela_controles" />
+                <action id="-9" name="Destroy" sid="886272919634813" type="tela_creditos" />
+                <action id="-9" name="Destroy" sid="971658333053647" type="tela_ranking" />
+                <action id="-9" name="Destroy" sid="324957388150950" type="bt_confirma" />
+                <action id="-9" name="Destroy" sid="665659266712961" type="bt_play" />
+                <action id="-9" name="Destroy" sid="758016282520480" type="bt_home" />
+                <action id="-9" name="Destroy" sid="372092832221132" type="bt_sair" />
+                <action id="-3" name="Create object" sid="278488903443629" type="System">
+                    <param id="0" name="Object to create">tela_titulo</param>
+                    <param id="1" name="Layer">&quot;menu_bg&quot;</param>
+                    <param id="2" name="X">0</param>
+                    <param id="3" name="Y">0</param>
+                </action>
+                <action id="-3" name="Create object" sid="367910483651700" type="System">
+                    <param id="0" name="Object to create">tit_color</param>
+                    <param id="1" name="Layer">&quot;menu_bg&quot;</param>
+                    <param id="2" name="X">0</param>
+                    <param id="3" name="Y">0</param>
+                </action>
+                <action id="-3" name="Create object" sid="387654532140534" type="System">
+                    <param id="0" name="Object to create">tit_amarelo</param>
+                    <param id="1" name="Layer">&quot;menu_bg&quot;</param>
+                    <param id="2" name="X">0</param>
+                    <param id="3" name="Y">0</param>
+                </action>
+                <action id="-3" name="Create object" sid="917919631986912" type="System">
+                    <param id="0" name="Object to create">bt_play</param>
+                    <param id="1" name="Layer">&quot;menu_bt&quot;</param>
+                    <param id="2" name="X">159</param>
+                    <param id="3" name="Y">307</param>
+                </action>
+                <action id="-3" name="Create object" sid="565183296989477" type="System">
+                    <param id="0" name="Object to create">bt_control</param>
+                    <param id="1" name="Layer">&quot;menu_bt&quot;</param>
+                    <param id="2" name="X">222</param>
+                    <param id="3" name="Y">307</param>
+                </action>
+                <action id="-3" name="Create object" sid="903652085488714" type="System">
+                    <param id="0" name="Object to create">bt_musica</param>
+                    <param id="1" name="Layer">&quot;menu_bt&quot;</param>
+                    <param id="2" name="X">285</param>
+                    <param id="3" name="Y">307</param>
+                </action>
+                <action id="-3" name="Create object" sid="280573521784881" type="System">
+                    <param id="0" name="Object to create">bt_rank</param>
+                    <param id="1" name="Layer">&quot;menu_bt&quot;</param>
+                    <param id="2" name="X">347</param>
+                    <param id="3" name="Y">307</param>
+                </action>
+                <action id="-3" name="Create object" sid="442400077442606" type="System">
+                    <param id="0" name="Object to create">bt_creditos</param>
+                    <param id="1" name="Layer">&quot;menu_bt&quot;</param>
+                    <param id="2" name="X">410</param>
+                    <param id="3" name="Y">307</param>
+                </action>
+                <action id="-3" name="Create object" sid="641880434751598" type="System">
+                    <param id="0" name="Object to create">bt_sair</param>
+                    <param id="1" name="Layer">&quot;menu_bt&quot;</param>
+                    <param id="2" name="X">473</param>
+                    <param id="3" name="Y">307</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="363883889339845">
+            <conditions>
+                <condition id="3" name="On touched object" sid="695567507307260" type="Touch">
+                    <param id="0" name="Object">bt_confirma</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="394244261547140" type="Audio" />
+                <action id="5" name="Set frame" sid="874194258508880" type="bt_confirma">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="716386893176402" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="5" name="Set frame" sid="439030747073510" type="bt_confirma">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="459183310958958" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="118751525334375" type="tela_sinopse" />
+                <action id="-2" name="Go to layout" sid="647920840879891" type="System">
+                    <param id="0" name="Layout">game</param>
+                </action>
+                <action id="-12" name="Set group active" sid="280551763149350" type="System">
+                    <param id="0" name="Group name">&quot;sistema&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="566729393732202">
+            <conditions>
+                <condition id="3" name="On touched object" sid="528532845783414" type="Touch">
+                    <param id="0" name="Object">bt_sair</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="2" name="Sign out" sid="808812162350369" type="GooglePlay" />
+                <action id="5" name="Set frame" sid="968158592353442" type="bt_sair">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="277537623784588" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="5" name="Set frame" sid="101548930526835" type="bt_sair">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="759000302132210" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="1" name="Close" sid="925097465724975" type="Browser" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

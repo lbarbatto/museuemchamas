@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event_placar</name>
+    <events>
+        <variable constant="0" name="pontos_total" sid="730043857625436" static="0" type="number">0</variable>
+        <variable constant="0" name="inimigos_total" sid="541025898279667" static="0" type="number">0</variable>
+        <variable constant="0" name="moedas_total" sid="925264151013602" static="0" type="number">0</variable>
+        <event-block sid="485610081395030">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="741835221669854" type="System" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="692379384318954" type="System">
+                    <param id="0" name="Object to create">tela_bg</param>
+                    <param id="1" name="Layer">&quot;placar_bg&quot;</param>
+                    <param id="2" name="X">0</param>
+                    <param id="3" name="Y">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="398724839256695" type="System">
+                    <param id="0" name="Variable">moedas_total</param>
+                    <param id="1" name="Value">Moedas*1000</param>
+                </action>
+                <action id="-9" name="Set value" sid="558356716773970" type="System">
+                    <param id="0" name="Variable">inimigos_total</param>
+                    <param id="1" name="Value">InimigosMortos*500</param>
+                </action>
+                <action id="-9" name="Set value" sid="421086188809429" type="System">
+                    <param id="0" name="Variable">pontos_total</param>
+                    <param id="1" name="Value">TotalDistance+moedas_total+inimigos_total</param>
+                </action>
+                <action id="0" name="Set text" sid="240647766953314" type="txt_qtd_moedas">
+                    <param id="0" name="Text">Moedas</param>
+                </action>
+                <action id="0" name="Set text" sid="104761828480605" type="txt_total_moedas">
+                    <param id="0" name="Text">moedas_total</param>
+                </action>
+                <action id="0" name="Set text" sid="339426251115979" type="txt_qtd_inimigos">
+                    <param id="0" name="Text">InimigosMortos</param>
+                </action>
+                <action id="0" name="Set text" sid="322016549175971" type="txt_total_inimigos">
+                    <param id="0" name="Text">inimigos_total</param>
+                </action>
+                <action id="0" name="Set text" sid="525659384285908" type="txt_total_pontos">
+                    <param id="0" name="Text">round(pontos_total)</param>
+                </action>
+                <action id="0" name="Set text" sid="896395879752191" type="txt_distancia_total">
+                    <param id="0" name="Text">round(TotalDistance)</param>
+                </action>
+                <action id="-16" name="Wait" sid="611812075815125" type="System">
+                    <param id="0" name="Seconds">1.5</param>
+                </action>
+                <action id="-15" name="Set visible" sid="973809397711521" type="bg_enviar">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="3" name="Set visible" sid="432236666593528" type="box_nome">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="2" name="Set visible" sid="836706670600964" type="bt_envia_pontos">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-15" name="Set visible" sid="971351012834492" type="txt_placar">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="0" name="Set text" sid="144850616853173" type="txt_placar">
+                    <param id="0" name="Text">&quot;Total: &quot; &amp; round(pontos_total)</param>
+                </action>
+                <action id="0" name="Request URL" sid="597325119466293" type="AJAX">
+                    <param id="0" name="Tag">&quot;getScore&quot;</param>
+                    <param id="1" name="URL">&quot;http://museuemchamas.orgfree.com/getscores.php&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="528751119975985">
+            <conditions>
+                <condition id="0" name="On clicked" sid="773066431915760" type="bt_envia_pontos" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="366003875337892" type="txt_placar">
+                    <param id="0" name="Text">&quot;Enviando...&quot;</param>
+                </action>
+                <action id="0" name="Request URL" sid="660460957600275" type="AJAX">
+                    <param id="0" name="Tag">&quot;sendScore&quot;</param>
+                    <param id="1" name="URL">&quot;http://museuemchamas.orgfree.com/savescores.php?name=&quot; &amp; box_nome.Text &amp; &quot;&amp;score=&quot; &amp; pontos_total</param>
+                </action>
+                <action id="-16" name="Wait" sid="162952573162963" type="System">
+                    <param id="0" name="Seconds">1.0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="398507401739743" type="bg_enviar">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="3" name="Set visible" sid="779259607292011" type="box_nome">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="2" name="Set visible" sid="701999727297145" type="bt_envia_pontos">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="432235285080993" type="txt_placar">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="207646112008607">
+            <conditions>
+                <condition id="0" name="On completed" sid="960101140978321" type="AJAX">
+                    <param id="0" name="Tag">&quot;sendScore&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="759496616375289" type="txt_placar">
+                    <param id="0" name="Text">&quot;Enviado com sucesso!&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="139089477020085" type="System">
+                    <param id="0" name="Seconds">1.5</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="997953868633300">
+            <conditions>
+                <condition id="1" name="On error" sid="331831949812563" type="AJAX">
+                    <param id="0" name="Tag">&quot;sendScore&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="665136187869742" type="txt_placar">
+                    <param id="0" name="Text">&quot;Erro ao enviar.&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block any="1" sid="586268800616292">
+            <conditions>
+                <condition id="3" name="On touched object" sid="735244163328543" type="Touch">
+                    <param id="0" name="Object">bt_reiniciar</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="261264186736515" type="bt_reiniciar">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="472903042383297" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="5" name="Set frame" sid="978617949573675" type="bt_reiniciar">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="481493810552926" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="125734092310176" type="bt_reiniciar" />
+                <action id="-9" name="Destroy" sid="519164164293947" type="bt_home" />
+                <action id="-9" name="Destroy" sid="969564069981620" type="bt_control" />
+                <action id="-9" name="Destroy" sid="637460426533397" type="bt_musica" />
+                <action id="-9" name="Destroy" sid="694113885404106" type="bt_rank" />
+                <action id="-9" name="Destroy" sid="959442529218333" type="bt_sair" />
+                <action id="-21" name="Reset global variables" sid="601247787924423" type="System" />
+                <action id="-2" name="Go to layout" sid="710163506390394" type="System">
+                    <param id="0" name="Layout">game</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="195709172929957">
+            <conditions>
+                <condition id="3" name="On touched object" sid="204032745239182" type="Touch">
+                    <param id="0" name="Object">bt_home</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="136817232315211" type="bt_home">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="281246709647363" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="5" name="Set frame" sid="796402431479079" type="bt_home">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="194236151414817" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="472678779503096" type="System">
+                    <param id="0" name="Layout">menu_intro</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="369944462853038">
+            <conditions>
+                <condition id="3" name="On touched object" sid="368168764912907" type="Touch">
+                    <param id="0" name="Object">bt_rank</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="815739967760006" type="bt_rank">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="728594402593029" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="5" name="Set frame" sid="390782862464691" type="bt_rank">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="933602858032200" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="815108067719403" type="tela_fim" />
+                <action id="-9" name="Destroy" sid="553174578921932" type="bt_reiniciar" />
+                <action id="-9" name="Destroy" sid="716908016843034" type="bt_home" />
+                <action id="-9" name="Destroy" sid="825858237624837" type="bt_rank" />
+                <action id="-9" name="Destroy" sid="170703864628389" type="bt_sair" />
+                <action id="-16" name="Set opacity" sid="229145630352126" type="txt_qtd_moedas">
+                    <param id="0" name="Opacity">0</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="549864922205020" type="txt_total_moedas">
+                    <param id="0" name="Opacity">0</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="382003890881947" type="txt_qtd_inimigos">
+                    <param id="0" name="Opacity">0</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="582900772802145" type="txt_total_inimigos">
+                    <param id="0" name="Opacity">0</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="263079442701070" type="txt_total_pontos">
+                    <param id="0" name="Opacity">0</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="152945794721971" type="txt_distancia_total">
+                    <param id="0" name="Opacity">0</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="646614710346305" type="txt_distancia">
+                    <param id="0" name="Opacity">0</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="854207628380296" type="txt_inimigos">
+                    <param id="0" name="Opacity">0</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="281545618661125" type="txt_inimigo_multiplicador">
+                    <param id="0" name="Opacity">0</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="352248655968346" type="txt_moedas">
+                    <param id="0" name="Opacity">0</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="685433910047898" type="txt_moedas_multiplicador">
+                    <param id="0" name="Opacity">0</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="952414439599619" type="txt_total_pontos">
+                    <param id="0" name="Opacity">0</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="540455179618057" type="txt_pontos">
+                    <param id="0" name="Opacity">0</param>
+                </action>
+                <action id="-3" name="Create object" sid="979968990407112" type="System">
+                    <param id="0" name="Object to create">tela_ranking</param>
+                    <param id="1" name="Layer">&quot;placar_bg&quot;</param>
+                    <param id="2" name="X">0</param>
+                    <param id="3" name="Y">0</param>
+                </action>
+                <action id="-3" name="Create object" sid="428070084942521" type="System">
+                    <param id="0" name="Object to create">bt_voltar</param>
+                    <param id="1" name="Layer">&quot;placar_bt&quot;</param>
+                    <param id="2" name="X">255.5</param>
+                    <param id="3" name="Y">318.5</param>
+                </action>
+                <action id="-3" name="Create object" sid="541411785274215" type="System">
+                    <param id="0" name="Object to create">bt_home</param>
+                    <param id="1" name="Layer">&quot;placar_bt&quot;</param>
+                    <param id="2" name="X">315.5</param>
+                    <param id="3" name="Y">318.5</param>
+                </action>
+                <action id="-3" name="Create object" sid="780225707424654" type="System">
+                    <param id="0" name="Object to create">bt_sair</param>
+                    <param id="1" name="Layer">&quot;placar_bt&quot;</param>
+                    <param id="2" name="X">375.5</param>
+                    <param id="3" name="Y">318.5</param>
+                </action>
+                <action id="-15" name="Set visible" sid="744079428460979" type="txt_rank">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="815716118084476">
+            <conditions>
+                <condition id="0" name="On completed" sid="683971022601988" type="AJAX">
+                    <param id="0" name="Tag">&quot;getScore&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="448023898261367">
+                    <conditions>
+                        <condition id="3" name="For each element" sid="622215676236918" type="Array">
+                            <param id="0" name="Axes">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="2" name="Set at X" sid="665376928640740" type="Array">
+                            <param id="0" name="X">Array.CurX</param>
+                            <param id="1" name="Value">tokenat(AJAX.LastData, Array.CurX, &quot;|&quot;)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="758422037751766">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="137581232553719" type="System">
+                            <param id="0" name="Object">txt_rank</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="200354591916125" type="txt_rank">
+                            <param id="0" name="Text">Array.At(txt_rank.IID)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="287097602007188">
+            <conditions>
+                <condition id="3" name="On touched object" sid="736855034731271" type="Touch">
+                    <param id="0" name="Object">bt_sair</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="109848489828232" type="bt_sair">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="936360707621196" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="5" name="Set frame" sid="150202844376012" type="bt_sair">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="108914862714985" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="1" name="Close" sid="761377953426719" type="Browser" />
+                <action id="2" name="Sign out" sid="529160525237119" type="GooglePlay" />
+                <action id="-13" name="Set time scale" sid="502586129194224" type="System">
+                    <param id="0" name="Time scale">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="468421285530599">
+            <conditions>
+                <condition id="3" name="On touched object" sid="922802477163133" type="Touch">
+                    <param id="0" name="Object">bt_voltar</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="136372508569867" type="bt_voltar">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="631224764042157" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="5" name="Set frame" sid="574034612641567" type="bt_voltar">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="493621793384078" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="522444443431708" type="bt_voltar" />
+                <action id="-9" name="Destroy" sid="849271316698347" type="bt_home" />
+                <action id="-9" name="Destroy" sid="654057572790199" type="bt_sair" />
+                <action id="-16" name="Set opacity" sid="666111845597009" type="txt_qtd_moedas">
+                    <param id="0" name="Opacity">100</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="699408623745194" type="txt_total_moedas">
+                    <param id="0" name="Opacity">100</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="268429222954033" type="txt_qtd_inimigos">
+                    <param id="0" name="Opacity">100</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="553524799210228" type="txt_total_inimigos">
+                    <param id="0" name="Opacity">100</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="813648055316530" type="txt_total_pontos">
+                    <param id="0" name="Opacity">100</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="266151473219973" type="txt_distancia_total">
+                    <param id="0" name="Opacity">100</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="259672315741012" type="txt_distancia">
+                    <param id="0" name="Opacity">100</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="170487826877131" type="txt_inimigos">
+                    <param id="0" name="Opacity">100</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="777870881490677" type="txt_inimigo_multiplicador">
+                    <param id="0" name="Opacity">100</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="337776313533067" type="txt_moedas">
+                    <param id="0" name="Opacity">100</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="171380228282237" type="txt_moedas_multiplicador">
+                    <param id="0" name="Opacity">100</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="587191617161158" type="txt_total_pontos">
+                    <param id="0" name="Opacity">100</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="114051136953682" type="txt_pontos">
+                    <param id="0" name="Opacity">100</param>
+                </action>
+                <action id="-3" name="Create object" sid="948879216189362" type="System">
+                    <param id="0" name="Object to create">tela_fim</param>
+                    <param id="1" name="Layer">&quot;placar_bg&quot;</param>
+                    <param id="2" name="X">0</param>
+                    <param id="3" name="Y">0</param>
+                </action>
+                <action id="-3" name="Create object" sid="300503597694465" type="System">
+                    <param id="0" name="Object to create">bt_reiniciar</param>
+                    <param id="1" name="Layer">&quot;placar_bt&quot;</param>
+                    <param id="2" name="X">223</param>
+                    <param id="3" name="Y">317</param>
+                </action>
+                <action id="-3" name="Create object" sid="766847806848197" type="System">
+                    <param id="0" name="Object to create">bt_home</param>
+                    <param id="1" name="Layer">&quot;placar_bt&quot;</param>
+                    <param id="2" name="X">284</param>
+                    <param id="3" name="Y">317</param>
+                </action>
+                <action id="-3" name="Create object" sid="233625338926363" type="System">
+                    <param id="0" name="Object to create">bt_rank</param>
+                    <param id="1" name="Layer">&quot;placar_bt&quot;</param>
+                    <param id="2" name="X">345</param>
+                    <param id="3" name="Y">317</param>
+                </action>
+                <action id="-3" name="Create object" sid="711498938916529" type="System">
+                    <param id="0" name="Object to create">bt_sair</param>
+                    <param id="1" name="Layer">&quot;placar_bt&quot;</param>
+                    <param id="2" name="X">406</param>
+                    <param id="3" name="Y">317</param>
+                </action>
+                <action id="-15" name="Set visible" sid="515048965367054" type="txt_rank">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

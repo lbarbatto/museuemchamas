@@ -1,0 +1,636 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>Museu em Chamas</name>
+    <description></description>
+    <version>1.0</version>
+    <author>Pororoca</author>
+    <author-email>contato.pororoca@gmail.com</author-email>
+    <author-website></author-website>
+    <app-id></app-id>
+    <unique-id>mq4njje893h0</unique-id>
+    <saved-with-version>28000</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="AJAX" version="1">AJAX</plugin>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
+        <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
+        <plugin author="Scirra" id="Button" version="1">Button</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TextBox" version="1">Text box</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
+        <plugin author="Scirra" id="googleplay" version="1">Google Play</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
+        <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+    </used-behaviors>
+    <used-effects />
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>630</width>
+        <height>360</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <first-layout>menu_intro</first-layout>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">Yes</prop>
+        <prop name="Downscaling">Medium quality</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Hide address bar">No</prop>
+        <prop name="Loader style">Progress bar &amp; logo</prop>
+        <prop name="Orientations">Landscape</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Linear</prop>
+        <prop name="Use iOS retina display">iPhone only</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-type name="BG" sid="471534705243101">
+            <plugin id="TiledBg" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="243500649512534">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <texture original-source="D:\LB\UVA\Jogos2d\Games\Cabecasquadradas\_Source\platformerGraphicsDeluxe_Updated\Mushroom expansion\Backgrounds\bg_shroom.png" />
+        </object-type>
+        <object-type name="Block" sid="447800950474186">
+            <plugin id="TiledBg" />
+            <behaviors>
+                <behavior-type name="Solid" sid="376535708765409">
+                    <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="Bullet" sid="398326795056583">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <texture original-source="D:\LB\UVA\Jogos2d\Games\Cabecasquadradas\_Source\platformerGraphicsDeluxe_Updated\Tiles\grassCenter.png" />
+        </object-type>
+        <object-type name="Player" sid="662410417003920">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Platform" sid="727403498827069">
+                    <behavior id="Platform" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="896681919249520" speed="5">
+                    <frame duration="1" hotspotX="0.514286" hotspotY="1" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Touch" sid="607934291699853">
+            <plugin id="Touch" />
+        </object-type>
+        <object-type name="Keyboard" sid="776850208736572">
+            <plugin id="Keyboard" />
+        </object-type>
+        <object-type name="txt_hud_distancia" sid="649341863504583">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Sprite_player" sid="706629080718571">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Pin" sid="918633227962836">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="2" loop="1" name="Run" pingpong="0" repeatcount="1" repeatto="0" sid="619867887237526" speed="9">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\PNG\Adventurer\Poses\adventurer_walk1.png" />
+                    <frame duration="1" hotspotX="0.509091" hotspotY="1" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\PNG\Adventurer\Poses\adventurer_walk2.png" />
+                </animation>
+                <animation framecount="1" loop="0" name="jump" pingpong="0" repeatcount="1" repeatto="0" sid="366804435126960" speed="5">
+                    <frame duration="1" hotspotX="0.506849" hotspotY="1" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\PNG\Adventurer\Poses\adventurer_jump.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Enime" sid="735414006742805">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="179682494793800">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="3" loop="1" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="557820935374568" speed="10">
+                    <frame duration="1" hotspotX="0.512195" hotspotY="0.512195" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\inimigo\tank_explosion2.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\inimigo\tank_explosion3.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\inimigo\tank_explosion4.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Moeda" sid="648707391161814">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="501080759089667">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="6" loop="1" name="Default" pingpong="1" repeatcount="1" repeatto="0" sid="405066630846118" speed="6">
+                    <frame duration="1" hotspotX="0.508772" hotspotY="0.5" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\hud\reliquia_01.png" />
+                    <frame duration="1" hotspotX="0.507463" hotspotY="0.507692" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\hud\reliquia_02.png" />
+                    <frame duration="1" hotspotX="0.508772" hotspotY="0.5" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\hud\reliquia_03.png" />
+                    <frame duration="1" hotspotX="0.507463" hotspotY="0.507692" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\hud\reliquia_04.png" />
+                    <frame duration="1" hotspotX="0.508772" hotspotY="0.5" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\hud\reliquia_05.png" />
+                    <frame duration="1" hotspotX="0.507463" hotspotY="0.507692" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\hud\reliquia_06.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="lava" sid="681123299594411">
+            <plugin id="TiledBg" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="915941123851524">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <texture original-source="D:\LB\UVA\Jogos2d\Games\Cabecasquadradas\_Source\platformerGraphicsDeluxe_Updated\Tiles\liquidLavaTop_mid.png" />
+        </object-type>
+        <object-type name="txt_qtd_moedas" sid="521237987341736">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Vitalidade" sid="346746619988247">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="788742741295259" speed="0">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\vidas_00.png" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\vidas_01.png" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\vidas_02.png" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\vidas_03.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="bg_tela_pause" sid="559952506027066">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="DistanceDisplay2" sid="296039674966332">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="txt_total_moedas" sid="880524037648311">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="txt_total_inimigos" sid="648714663492803">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="txt_total_pontos" sid="909755994743724">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="txt_moedas" sid="583947764084990">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="txt_inimigos" sid="359000237184733">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="txt_distancia" sid="956406618039704">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="txt_qtd_inimigos" sid="248283309063006">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="tela_titulo" sid="929372932848701">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="11" loop="1" name="Default" pingpong="1" repeatcount="1" repeatto="0" sid="583310941080764" speed="9">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\telas\titulo_01.png" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\telas\titulo_02.png" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\telas\titulo_03.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="tela_sinopse" sid="642376863382612">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="463792980167851" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\telas\sinopse.png">
+                        <collision-poly>
+                            <point x="0.146032" y="0.255556" />
+                            <point x="0.5" y="0.0194444" />
+                            <point x="0.853968" y="0.255556" />
+                            <point x="0.853968" y="0.744444" />
+                            <point x="0.5" y="0.980556" />
+                            <point x="0.146032" y="0.744444" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="tela_controles" sid="856701018062865">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="654186585593560" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\telas\control.png">
+                        <collision-poly>
+                            <point x="0.146032" y="0.255556" />
+                            <point x="0.5" y="0.0194444" />
+                            <point x="0.853968" y="0.255556" />
+                            <point x="0.853968" y="0.744444" />
+                            <point x="0.5" y="0.980556" />
+                            <point x="0.146032" y="0.744444" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="tela_creditos" sid="358940911482802">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="971834659141741" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\telas\credito.png">
+                        <collision-poly>
+                            <point x="0.146032" y="0.255556" />
+                            <point x="0.5" y="0.0194444" />
+                            <point x="0.853968" y="0.255556" />
+                            <point x="0.853968" y="0.744444" />
+                            <point x="0.5" y="0.980556" />
+                            <point x="0.146032" y="0.744444" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="tela_pause" sid="293389420769418">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="698187556698287" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\telas\pause.png">
+                        <collision-poly>
+                            <point x="0.184127" y="0.322222" />
+                            <point x="0.5" y="0.0861111" />
+                            <point x="0.815873" y="0.322222" />
+                            <point x="0.820635" y="0.5" />
+                            <point x="0.779365" y="0.613889" />
+                            <point x="0.5" y="0.769444" />
+                            <point x="0.220635" y="0.613889" />
+                            <point x="0.179365" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="bt_play" sid="441818715098593">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="219457427384977" speed="0">
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\botoes\play_01.png" />
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\botoes\play_02.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="bt_control" sid="607631071842367">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="189275814722111" speed="0">
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\botoes\controle_01.png" />
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\botoes\controle_02.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="bt_musica" sid="733895277534343">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="961617440368580" speed="0">
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\botoes\musica_01.png" />
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\botoes\musica_02.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="bt_rank" sid="397533746070960">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="369058480960447" speed="0">
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\botoes\rank_01.png" />
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\botoes\rank_02.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="bt_creditos" sid="387634976211518">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="541377259384351" speed="0">
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\botoes\creditos_01.png" />
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\botoes\creditos_02.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="bt_sair" sid="859240761903522">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="970846364803258" speed="0">
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\botoes\sair_01.png" />
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\botoes\sair_02.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="bt_home" sid="801463964054088">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="212966488647412" speed="0">
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\botoes\home_01.png" />
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\botoes\home_02.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="bt_confirma" sid="873035208680521">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="305560073549748" speed="0">
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\botoes\confirma_01.png" />
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\botoes\confirma_02.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="GooglePlay" sid="159391732283967">
+            <plugin id="googleplay" />
+        </object-type>
+        <object-type name="Browser" sid="731810483648475">
+            <plugin id="Browser" />
+        </object-type>
+        <object-type name="bt_pause" sid="869806617682658">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="368362594830239" speed="0">
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\botoes\pause_01.png" />
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\botoes\pause_02.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="bt_reiniciar" sid="607867038726286">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="337361115653256" speed="0">
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\botoes\reiniciar_01.png" />
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\botoes\reiniciar_02.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="tela_fim" sid="892344474360326">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="220417812885245" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\telas\fim.png">
+                        <collision-poly>
+                            <point x="0.146032" y="0.255556" />
+                            <point x="0.5" y="0.0194444" />
+                            <point x="0.853968" y="0.255556" />
+                            <point x="0.853968" y="0.744444" />
+                            <point x="0.5" y="0.980556" />
+                            <point x="0.146032" y="0.744444" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="txt_moedas_multiplicador" sid="364066971187351">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="txt_inimigo_multiplicador" sid="604976859295487">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="txt_distancia_total" sid="747809344433997">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Particles" sid="259206416516333">
+            <plugin id="Particles" />
+            <texture original-source="D:\_Pororoca\Casuais\Infinit_run\_source\inimigo\tank_explosion9.png" />
+        </object-type>
+        <object-type name="tela_ranking" sid="228438686866184">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="589593821207254" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\telas\ranking.png">
+                        <collision-poly>
+                            <point x="0.146032" y="0.255556" />
+                            <point x="0.5" y="0.0194444" />
+                            <point x="0.853968" y="0.255556" />
+                            <point x="0.853968" y="0.744444" />
+                            <point x="0.5" y="0.980556" />
+                            <point x="0.146032" y="0.744444" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="bt_voltar" sid="975403767005579">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="741533230959326" speed="0">
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\botoes\voltar_01.png" />
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\botoes\voltar_02.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="txt_pontos" sid="179064635435977">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="TiledBackground" sid="408673112070554">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="tela_bg" sid="975911310559709">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="Sprite" sid="918876056858639">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="21" loop="1" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="328567151515387" speed="8">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\bg\museu_bg_04.png" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\bg\museu_bg_05.png" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\bg\museu_bg_06.png" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\bg\museu_bg_07.png" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="TiledBackground2" sid="980350364436625">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="Sprite2" sid="248356908915945">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="558863667468467" speed="5">
+                    <frame duration="1" hotspotX="0.512195" hotspotY="0.512195" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\inimigo\tank_explosion2.png">
+                        <collision-poly>
+                            <point x="0.146341" y="0.146341" />
+                            <point x="0.487805" y="0" />
+                            <point x="0.853659" y="0.146341" />
+                            <point x="0.97561" y="0.487805" />
+                            <point x="0.829268" y="0.829268" />
+                            <point x="0.487805" y="0.97561" />
+                            <point x="0.146341" y="0.853659" />
+                            <point x="0" y="0.487805" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Sprite3" sid="592647020464025">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="536359582103804" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Sprite4" sid="644409183916608">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="417014872296251" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\hud\hud_player.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="tit_color" sid="905946162190701">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="569570455253920" speed="8">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\logo_anima\museu_logo_02.png" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\logo_anima\museu_logo_03.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="tit_amarelo" sid="867601676306659">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="367979856852010" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\_Pororoca\Casuais\Infinit_run\_source\logo_anima\museu_logo_01.png">
+                        <collision-poly>
+                            <point x="0.266344" y="0.466102" />
+                            <point x="0.5" y="0.211864" />
+                            <point x="0.733656" y="0.466102" />
+                            <point x="0.70339" y="0.5" />
+                            <point x="0.704601" y="0.483051" />
+                            <point x="0.5" y="0.559322" />
+                            <point x="0.288136" y="0.495763" />
+                            <point x="0.338983" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="AJAX" sid="725968744363316">
+            <plugin id="AJAX" />
+        </object-type>
+        <object-type name="box_nome" sid="509537902421733">
+            <plugin id="TextBox" />
+        </object-type>
+        <object-type name="bt_envia_pontos" sid="114700749251849">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="bg_enviar" sid="447262339933010">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="423059860906988" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="txt_placar" sid="872412917114927">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Audio" sid="982488422527275">
+            <plugin id="Audio" />
+        </object-type>
+        <object-type name="txt_rank" sid="373507140159377">
+            <plugin id="Text" />
+        </object-type>
+        <object-type global="1" name="Array" sid="810280574432065">
+            <plugin id="Arr" />
+        </object-type>
+    </object-folder>
+    <families />
+    <layout-folder>
+        <layout>menu_intro.xml</layout>
+        <layout>game.xml</layout>
+        <layout>placar.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>Event_game.xml</event-sheet>
+        <event-sheet>Event_menu.xml</event-sheet>
+        <event-sheet>Event_placar.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Touch" uid="4">
+            <properties>
+                <use-mouse-input>Yes</use-mouse-input>
+            </properties>
+        </global-instance>
+        <global-instance type="Keyboard" uid="5" />
+        <global-instance type="GooglePlay" uid="43">
+            <properties>
+                <application-id></application-id>
+                <client-id></client-id>
+                <client-secret></client-secret>
+            </properties>
+        </global-instance>
+        <global-instance type="Browser" uid="44" />
+        <global-instance type="AJAX" uid="19" />
+        <global-instance type="Audio" uid="65">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+            </properties>
+        </global-instance>
+    </global-instances>
+    <sounds-folder />
+    <music-folder>
+        <file name="gameover_01_01.ogg" />
+        <file name="menu_ES_In a Nutshell - Got Happy_01.ogg" />
+        <file name="ES_Lights &amp; Sounds - Honeycutts_02.ogg" />
+    </music-folder>
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>
